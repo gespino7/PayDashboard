@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8EF2F173BE13256BDFA4C0D7 /* Pods_TamalesDash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 113EBE9A8AD7DAF5591B1E5C /* Pods_TamalesDash.framework */; };
+		B90C02D31EFF292000EA3A32 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90C02D21EFF292000EA3A32 /* Item.swift */; };
 		B9A637D01EFE0C3F009CF6DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A637CF1EFE0C3F009CF6DD /* AppDelegate.swift */; };
 		B9A637D21EFE0C3F009CF6DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A637D11EFE0C3F009CF6DD /* ViewController.swift */; };
 		B9A637D51EFE0C3F009CF6DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9A637D31EFE0C3F009CF6DD /* Main.storyboard */; };
@@ -15,6 +17,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		113EBE9A8AD7DAF5591B1E5C /* Pods_TamalesDash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TamalesDash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1623E64D3FB314E1551332DB /* Pods-TamalesDash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TamalesDash.release.xcconfig"; path = "Pods/Target Support Files/Pods-TamalesDash/Pods-TamalesDash.release.xcconfig"; sourceTree = "<group>"; };
+		4E2FAE29B852C10BC8FB5B4A /* Pods-TamalesDash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TamalesDash.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TamalesDash/Pods-TamalesDash.debug.xcconfig"; sourceTree = "<group>"; };
+		B90C02D21EFF292000EA3A32 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		B9A637CC1EFE0C3F009CF6DD /* TamalesDash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TamalesDash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9A637CF1EFE0C3F009CF6DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9A637D11EFE0C3F009CF6DD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EF2F173BE13256BDFA4C0D7 /* Pods_TamalesDash.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +47,8 @@
 			children = (
 				B9A637CE1EFE0C3F009CF6DD /* TamalesDash */,
 				B9A637CD1EFE0C3F009CF6DD /* Products */,
+				C6A4AB964E50EFC07112FF9F /* Pods */,
+				EC5487F9C1E510F565390DB6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,8 +69,26 @@
 				B9A637D61EFE0C3F009CF6DD /* Assets.xcassets */,
 				B9A637D81EFE0C3F009CF6DD /* LaunchScreen.storyboard */,
 				B9A637DB1EFE0C3F009CF6DD /* Info.plist */,
+				B90C02D21EFF292000EA3A32 /* Item.swift */,
 			);
 			path = TamalesDash;
+			sourceTree = "<group>";
+		};
+		C6A4AB964E50EFC07112FF9F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4E2FAE29B852C10BC8FB5B4A /* Pods-TamalesDash.debug.xcconfig */,
+				1623E64D3FB314E1551332DB /* Pods-TamalesDash.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EC5487F9C1E510F565390DB6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				113EBE9A8AD7DAF5591B1E5C /* Pods_TamalesDash.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B9A637DE1EFE0C3F009CF6DD /* Build configuration list for PBXNativeTarget "TamalesDash" */;
 			buildPhases = (
+				188448F355858621F78CC02C /* [CP] Check Pods Manifest.lock */,
 				B9A637C81EFE0C3F009CF6DD /* Sources */,
 				B9A637C91EFE0C3F009CF6DD /* Frameworks */,
 				B9A637CA1EFE0C3F009CF6DD /* Resources */,
+				6D719ABAFEC7C7CC33865DB8 /* [CP] Embed Pods Frameworks */,
+				F221D0A61877BBFF22D44208 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -132,12 +162,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		188448F355858621F78CC02C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6D719ABAFEC7C7CC33865DB8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TamalesDash/Pods-TamalesDash-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F221D0A61877BBFF22D44208 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TamalesDash/Pods-TamalesDash-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B9A637C81EFE0C3F009CF6DD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B9A637D21EFE0C3F009CF6DD /* ViewController.swift in Sources */,
+				B90C02D31EFF292000EA3A32 /* Item.swift in Sources */,
 				B9A637D01EFE0C3F009CF6DD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,6 +340,7 @@
 		};
 		B9A637DF1EFE0C3F009CF6DD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E2FAE29B852C10BC8FB5B4A /* Pods-TamalesDash.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = EKGNN5Z2FR;
@@ -269,11 +349,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Hellloworld.TamalesDash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		B9A637E01EFE0C3F009CF6DD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1623E64D3FB314E1551332DB /* Pods-TamalesDash.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = EKGNN5Z2FR;
@@ -282,6 +364,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Hellloworld.TamalesDash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -304,6 +387,7 @@
 				B9A637E01EFE0C3F009CF6DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
