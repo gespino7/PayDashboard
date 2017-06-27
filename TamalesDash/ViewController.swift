@@ -35,7 +35,51 @@ class ViewController: UIViewController {
     }
 
     
+    @IBAction func item1Touched(_ sender: Any) {
+        print("Puerco")
+    }
+    @IBAction func item2Touched(_ sender: Any) {
+    }
     
+    @IBAction func item3Touched(_ sender: Any) {
+    }
+    
+    @IBAction func item4Touched(_ sender: Any) {
+    }
+
+    @IBAction func item5Touched(_ sender: Any) {
+    }
+    
+    @IBAction func item6Touched(_ sender: Any) {
+    }
+    
+    @IBAction func item7Touched(_ sender: Any) {
+    }
+    
+    
+    @IBAction func item8Touched(_ sender: Any) {
+    }
+    
+    @IBAction func item9Touched(_ sender: Any) {
+    }
+    
+    @IBAction func item10Touched(_ sender: Any) {
+    }
+    
+    @IBAction func item11Touched(_ sender: Any) {
+    }
+    
+    @IBAction func item12Touched(_ sender: Any) {
+    }
+    
+    @IBAction func item13Touched(_ sender: Any) {
+    }
+    
+    @IBAction func item14Touched(_ sender: Any) {
+    }
+    
+    @IBAction func item15Touched(_ sender: Any) {
+    }
     
     
     override func didReceiveMemoryWarning() {
