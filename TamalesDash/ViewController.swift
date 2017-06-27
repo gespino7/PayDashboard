@@ -28,82 +28,80 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var item14: UIButton!
     @IBOutlet weak var item15: UIButton!
     @IBOutlet weak var sendOrder: UIButton!
-    
+
     @IBOutlet weak var tableView: UITableView!
  
-    
+    //TODO: need to move this prices to a class
+    let RegularPrice = 2.5
+    let NonRegularPrice = 3.0
+    let DocenaPrice = 26.0
+    let TortaPrice = 4.0
+    let SodaPrice = 1.50
+    let WaterPrice = 1.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-  
-    
+
+    //Add item to the viewtable and refresh it.
     @IBAction func item1Touched(_ sender: Any) {
         let tempName = item1.titleLabel?.text
-        let tempItem = Item()
-        tempItem.name = tempName!
+        let tempItem = Item(Name:tempName!,Price:RegularPrice,Count:1)
         orderItems.append(tempItem)
-        debugPrint(tempName!)
+        debugPrint("Adding: \(tempItem.Name) $\(tempItem.Price)")
         self.tableView.reloadData()
       
     }
     @IBAction func item2Touched(_ sender: Any) {
         let tempName = item2.titleLabel?.text
-        let tempItem = Item()
-        tempItem.name = tempName!
+        let tempItem = Item(Name:tempName!,Price:RegularPrice,Count:1)
         orderItems.append(tempItem)
-        debugPrint(tempName!)
+        debugPrint("Adding: \(tempItem.Name) $\(tempItem.Price)")
         self.tableView.reloadData()
     }
     
     @IBAction func item3Touched(_ sender: Any) {
         let tempName = item3.titleLabel?.text
-        let tempItem = Item()
-        tempItem.name = tempName!
+        let tempItem = Item(Name:tempName!,Price:RegularPrice,Count:1)
         orderItems.append(tempItem)
-        debugPrint(tempName!)
+        debugPrint("Adding: \(tempItem.Name) $\(tempItem.Price)")
         self.tableView.reloadData()
     }
     
     @IBAction func item4Touched(_ sender: Any) {
         let tempName = item4.titleLabel?.text
-        let tempItem = Item()
-        tempItem.name = tempName!
+        let tempItem = Item(Name:tempName!,Price:SodaPrice,Count:1)
         orderItems.append(tempItem)
-        debugPrint(tempName!)
+        debugPrint("Adding: \(tempItem.Name) $\(tempItem.Price)")
         self.tableView.reloadData()
     }
 
     @IBAction func item5Touched(_ sender: Any) {
         let tempName = item5.titleLabel?.text
-        let tempItem = Item()
-        tempItem.name = tempName!
+        let tempItem = Item(Name:tempName!,Price:NonRegularPrice ,Count:1)
         orderItems.append(tempItem)
-        debugPrint(tempName!)
+        debugPrint("Adding: \(tempItem.Name) $\(tempItem.Price)")
         self.tableView.reloadData()
     }
     
     @IBAction func item6Touched(_ sender: Any) {
         let tempName = item6.titleLabel?.text
-        let tempItem = Item()
-        tempItem.name = tempName!
+        let tempItem = Item(Name:tempName!,Price:NonRegularPrice ,Count:1)
         orderItems.append(tempItem)
-        debugPrint(tempName!)
+        debugPrint("Adding: \(tempItem.Name) $\(tempItem.Price)")
         self.tableView.reloadData()
 
     }
     
     @IBAction func item7Touched(_ sender: Any) {
         let tempName = item7.titleLabel?.text
-        let tempItem = Item()
-        tempItem.name = tempName!
+        let tempItem = Item(Name:tempName!,Price:RegularPrice,Count:1)
         orderItems.append(tempItem)
-        debugPrint(tempName!)
+        debugPrint("Adding: \(tempItem.Name) $\(tempItem.Price)")
         self.tableView.reloadData()
 
     }
@@ -111,79 +109,71 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBAction func item8Touched(_ sender: Any) {
         let tempName = item8.titleLabel?.text
-        let tempItem = Item()
-        tempItem.name = tempName!
+        let tempItem = Item(Name:tempName!,Price:WaterPrice,Count:1)
         orderItems.append(tempItem)
-        debugPrint(tempName!)
+        debugPrint("Adding: \(tempItem.Name) $\(tempItem.Price)")
         self.tableView.reloadData()
 
     }
     
     @IBAction func item9Touched(_ sender: Any) {
         let tempName = item9.titleLabel?.text
-        let tempItem = Item()
-        tempItem.name = tempName!
+        let tempItem = Item(Name:tempName!,Price:RegularPrice,Count:1)
         orderItems.append(tempItem)
-        debugPrint(tempName!)
+        debugPrint("Adding: \(tempItem.Name) $\(tempItem.Price)")
         self.tableView.reloadData()
 
     }
     
     @IBAction func item10Touched(_ sender: Any) {
         let tempName = item10.titleLabel?.text
-        let tempItem = Item()
-        tempItem.name = tempName!
+       let tempItem = Item(Name:tempName!,Price:RegularPrice,Count:1)
         orderItems.append(tempItem)
-        debugPrint(tempName!)
+        debugPrint("Adding: \(tempItem.Name) $\(tempItem.Price)")
         self.tableView.reloadData()
 
     }
     
     @IBAction func item11Touched(_ sender: Any) {
         let tempName = item11.titleLabel?.text
-        let tempItem = Item()
-        tempItem.name = tempName!
+        let tempItem = Item(Name:tempName!,Price:NonRegularPrice,Count:1)
         orderItems.append(tempItem)
-        debugPrint(tempName!)
+        debugPrint("Adding: \(tempItem.Name) $\(tempItem.Price)")
         self.tableView.reloadData()
 
     }
     
     @IBAction func item12Touched(_ sender: Any) {
         let tempName = item12.titleLabel?.text
-        let tempItem = Item()
-        tempItem.name = tempName!
+        let tempItem = Item(Name:tempName!,Price:NonRegularPrice,Count:1)
         orderItems.append(tempItem)
-        debugPrint(tempName!)
+        debugPrint("Adding: \(tempItem.Name) $\(tempItem.Price)")
         self.tableView.reloadData()
 
     }
     
     @IBAction func item13Touched(_ sender: Any) {
         let tempName = item13.titleLabel?.text
-        let tempItem = Item()
-        tempItem.name = tempName!
+        let tempItem = Item(Name:tempName!,Price:RegularPrice,Count:1)
         orderItems.append(tempItem)
-        debugPrint(tempName!)
+        debugPrint("Adding: \(tempItem.Name) $\(tempItem.Price)")
         self.tableView.reloadData()
 
     }
     
     @IBAction func item14Touched(_ sender: Any) {
         let tempName = item14.titleLabel?.text
-        let tempItem = Item()
-        tempItem.name = tempName!
+        let tempItem = Item(Name:tempName!,Price:TortaPrice,Count:1)
         orderItems.append(tempItem)
-        debugPrint(tempName!)
+        debugPrint("Adding: \(tempItem.Name) $\(tempItem.Price)")
         self.tableView.reloadData()
     }
     
     @IBAction func item15Touched(_ sender: Any) {
         let tempName = item15.titleLabel?.text
-        let tempItem = Item()
-        tempItem.name = tempName!
+        let tempItem = Item(Name:tempName!,Price:DocenaPrice,Count:1)
         orderItems.append(tempItem)
-        debugPrint(tempName!)
+        debugPrint("Adding: \(tempItem.Name) $\(tempItem.Price)")
         self.tableView.reloadData()
 
     }
@@ -205,12 +195,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text = orderItems[indexPath.row].name
+        cell.textLabel?.text = orderItems[indexPath.row].Name
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         debugPrint("Select item \(indexPath.row)")
+        
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {

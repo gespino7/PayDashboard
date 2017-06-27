@@ -8,21 +8,20 @@
 
 import UIKit
 
-class Item: UITableViewCell {
+class Item{
 
-    public  var name:String = ""
-    public  var price:Double = 0.0
-    public  var count:Int = 0
+    public  var Name:String = ""
+    public  var Price:Double = 0.0
+    public  var Count:Int = 0
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+     init(Name:String, Price:Double,Count:Int) {
+        self.Name = Name
+        self.Price = Price
+        self.Count = Count
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
-
+    
 }
