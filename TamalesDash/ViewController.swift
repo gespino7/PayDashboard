@@ -33,6 +33,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //Labels for tableview display
     @IBOutlet weak var tableView: UITableView!
  
+    @IBOutlet weak var totalAmountLabel: UITextField!
     
     //TODO: need to move this prices to a class
     let RegularPrice = 2.5
@@ -48,6 +49,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.dataSource = self
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    
+//    //Alert to ask for order quantity
+//    func alert(){
+//        let alert = UIAlertController(title: "Some Title", message: "Enter a text", preferredStyle: .alert)
+//        
+//        //2. Add the text field. You can configure it however you need.
+//        alert.addTextField { (textField) in
+//            textField.text = "Some default text"
+//        }
+//        
+//        // 3. Grab the value from the text field, and print it when the user clicks OK.
+//        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+//            let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
+//            print("Text field: \(String(describing: textField?.text))")
+//        }))
+//        
+//        // 4. Present the alert.
+//        self.present(alert, animated: true, completion: nil)
+//        
+//    }
+    
     
 
     //Add item to the viewtable and refresh it.
@@ -65,6 +88,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         orderItems.append(tempItem)
         debugPrint("Adding: \(tempItem.Name) $\(tempItem.Price)")
         self.tableView.reloadData()
+       
     }
     
     @IBAction func item3Touched(_ sender: Any) {
@@ -73,6 +97,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         orderItems.append(tempItem)
         debugPrint("Adding: \(tempItem.Name) $\(tempItem.Price)")
         self.tableView.reloadData()
+        
     }
     
     @IBAction func item4Touched(_ sender: Any) {
@@ -202,8 +227,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = Bundle.main.loadNibNamed("CustomTableViewCell", owner: self, options: nil)?.first as! CustomTableViewCell
         cell.itemNameLabel?.text = orderItems[indexPath.row].Name
         cell.itemQuantityLabel?.text = "X" + String(orderItems[indexPath.row].Count)
-        cell.itemNotesLabel?.text = ""
+        cell.itemNotesLabel?.text = "TOGO"
         cell.itemPriceAmountLabel?.text = "$" + String(orderItems[indexPath.row].Price)
+        calculateTotal()
         return cell
     }
     
@@ -216,16 +242,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if editingStyle == .delete {
             orderItems.remove(at: indexPath.row)
             tableView.deleteRows(at:  [indexPath], with: .fade)
+            calculateTotal()
         }
     }
     
+    func calculateTotal(){
+        var total:Double = 0
+        
+        for item in orderItems{
+            total += item.Price
+        }
+        
+        totalAmountLabel.text = "$" + String(total)
+    
+    }
     
     
-    
-    
-    
-    
-    
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

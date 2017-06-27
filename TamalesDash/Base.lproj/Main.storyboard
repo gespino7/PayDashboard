@@ -263,6 +263,7 @@
                         <outlet property="item9" destination="yiN-zh-bds" id="GXH-jp-jGM"/>
                         <outlet property="sendOrder" destination="lCL-wr-3XF" id="b5a-eE-afM"/>
                         <outlet property="tableView" destination="tre-iM-aF8" id="6Mo-l1-qRj"/>
+                        <outlet property="totalAmountLabel" destination="Swq-kg-2NE" id="qTN-HI-97V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
