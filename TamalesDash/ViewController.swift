@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,
                         UITextFieldDelegate{
 
- 
+    //Buttons for items
     @IBOutlet weak var item1: UIButton!
     @IBOutlet weak var item2: UIButton!
     @IBOutlet weak var item3: UIButton!
@@ -27,10 +27,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var item13: UIButton!
     @IBOutlet weak var item14: UIButton!
     @IBOutlet weak var item15: UIButton!
+    
     @IBOutlet weak var sendOrder: UIButton!
-
+   
+    //Labels for tableview display
     @IBOutlet weak var tableView: UITableView!
  
+    
     //TODO: need to move this prices to a class
     let RegularPrice = 2.5
     let NonRegularPrice = 3.0
@@ -185,17 +188,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         debugPrint(name!)
     }
     
-    
+    //Array to hold items in order.
     var orderItems = [Item]()
     
+    
+    //Methods for tableview.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return orderItems.count
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = orderItems[indexPath.row].Name
+        let cell = Bundle.main.loadNibNamed("CustomTableViewCell", owner: self, options: nil)?.first as! CustomTableViewCell
+        cell.itemNameLabel?.text = orderItems[indexPath.row].Name
+        cell.itemQuantityLabel?.text = "X" + String(orderItems[indexPath.row].Count)
+        cell.itemNotesLabel?.text = ""
+        cell.itemPriceAmountLabel?.text = "$" + String(orderItems[indexPath.row].Price)
         return cell
     }
     
@@ -216,9 +224,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        //TODO
     }
 
 
