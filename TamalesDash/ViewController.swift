@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,
                         UITextFieldDelegate{
@@ -30,11 +31,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var sendOrder: UIButton!
    
+    @IBOutlet weak var payButton: UIButton!
     //Labels for tableview display
     @IBOutlet weak var tableView: UITableView!
  
     @IBOutlet weak var totalAmountLabel: UITextField!
     
+    
+
+
     //TODO: need to move this prices to a class
     let RegularPrice = 2.5
     let NonRegularPrice = 3.0
@@ -43,33 +48,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let SodaPrice = 1.50
     let WaterPrice = 1.0
     
+    //Creating a connection to firebase
+    var db: FIRDatabaseReference!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        db = FIRDatabase.database().reference()
+
         // Do any additional setup after loading the view, typically from a nib.
     }
     
+  
     
-//    //Alert to ask for order quantity
-//    func alert(){
-//        let alert = UIAlertController(title: "Some Title", message: "Enter a text", preferredStyle: .alert)
-//        
-//        //2. Add the text field. You can configure it however you need.
-//        alert.addTextField { (textField) in
-//            textField.text = "Some default text"
-//        }
-//        
-//        // 3. Grab the value from the text field, and print it when the user clicks OK.
-//        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
-//            let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
-//            print("Text field: \(String(describing: textField?.text))")
-//        }))
-//        
-//        // 4. Present the alert.
-//        self.present(alert, animated: true, completion: nil)
-//        
-//    }
+    
+    
     
     
 
@@ -207,9 +201,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @IBAction func sendOrder(_ sender: Any) {
+        
         let name = sendOrder.titleLabel?.text
+        let strTime = String(getFormatedTime())
+        let strAmount = totalAmountLabel.text?.replacingOccurrences(of: "$", with: "")
+        db.child("Sales").child(strTime!).setValue(strAmount!)
         orderItems.removeAll()
         self.tableView.reloadData()
+        totalAmountLabel.text = "$0.0"
         debugPrint(name!)
     }
     
@@ -227,7 +226,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = Bundle.main.loadNibNamed("CustomTableViewCell", owner: self, options: nil)?.first as! CustomTableViewCell
         cell.itemNameLabel?.text = orderItems[indexPath.row].Name
         cell.itemQuantityLabel?.text = "X" + String(orderItems[indexPath.row].Count)
-        cell.itemNotesLabel?.text = "TOGO"
         cell.itemPriceAmountLabel?.text = "$" + String(orderItems[indexPath.row].Price)
         calculateTotal()
         return cell
@@ -246,20 +244,39 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
-    func calculateTotal(){
-        var total:Double = 0
-        
-        for item in orderItems{
-            total += item.Price
-        }
-        
-        totalAmountLabel.text = "$" + String(total)
     
+    
+    func calculateTotal(){
+        var tempTotal:Double = 0
+        for item in orderItems{
+            tempTotal += item.Price
+        }
+        totalAmountLabel.text = "$" + String(tempTotal)
+    }
+    
+  
+    //TODO
+    @IBAction func payTouched(_ sender: Any) {
+        let temptime = getFormatedTime()
+        
+        print(temptime)
+        
     }
     
     
-
     
+    
+    //get formated time --> June 29, 2017 at 1:59:09 PM PDT
+    func getFormatedTime()->String{
+    
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
+        dateFormatter.timeStyle = .long
+        let time = dateFormatter.string(from: date)
+        return time
+    
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

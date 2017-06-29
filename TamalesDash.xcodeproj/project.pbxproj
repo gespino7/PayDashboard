@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8EF2F173BE13256BDFA4C0D7 /* Pods_TamalesDash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 113EBE9A8AD7DAF5591B1E5C /* Pods_TamalesDash.framework */; };
+		B9089A811F04633100A2D642 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B9089A801F04633100A2D642 /* GoogleService-Info.plist */; };
 		B9659F8E1F02DB3600915414 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9659F8D1F02DB3600915414 /* Item.swift */; };
 		B9659F931F030C7F00915414 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9659F911F030C7F00915414 /* CustomTableViewCell.swift */; };
 		B9659F941F030C7F00915414 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9659F921F030C7F00915414 /* CustomTableViewCell.xib */; };
@@ -22,6 +23,7 @@
 		113EBE9A8AD7DAF5591B1E5C /* Pods_TamalesDash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TamalesDash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1623E64D3FB314E1551332DB /* Pods-TamalesDash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TamalesDash.release.xcconfig"; path = "Pods/Target Support Files/Pods-TamalesDash/Pods-TamalesDash.release.xcconfig"; sourceTree = "<group>"; };
 		4E2FAE29B852C10BC8FB5B4A /* Pods-TamalesDash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TamalesDash.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TamalesDash/Pods-TamalesDash.debug.xcconfig"; sourceTree = "<group>"; };
+		B9089A801F04633100A2D642 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B9659F8D1F02DB3600915414 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		B9659F911F030C7F00915414 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		B9659F921F030C7F00915414 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				B9A637D81EFE0C3F009CF6DD /* LaunchScreen.storyboard */,
 				B9A637DB1EFE0C3F009CF6DD /* Info.plist */,
 				B9659F8D1F02DB3600915414 /* Item.swift */,
+				B9089A801F04633100A2D642 /* GoogleService-Info.plist */,
 			);
 			path = TamalesDash;
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 			files = (
 				B9A637DA1EFE0C3F009CF6DD /* LaunchScreen.storyboard in Resources */,
 				B9A637D71EFE0C3F009CF6DD /* Assets.xcassets in Resources */,
+				B9089A811F04633100A2D642 /* GoogleService-Info.plist in Resources */,
 				B9659F941F030C7F00915414 /* CustomTableViewCell.xib in Resources */,
 				B9A637D51EFE0C3F009CF6DD /* Main.storyboard in Resources */,
 			);
