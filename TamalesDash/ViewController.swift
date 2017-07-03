@@ -29,6 +29,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var item14: UIButton!
     @IBOutlet weak var item15: UIButton!
     
+   
+    @IBOutlet weak var changeLabel: UILabel!
+    @IBOutlet weak var amountPaidTextField: UITextField!
+    
     @IBOutlet weak var sendOrder: UIButton!
    
     @IBOutlet weak var payButton: UIButton!
@@ -57,11 +61,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.dataSource = self
         db = FIRDatabase.database().reference()
 
-        // Do any additional setup after loading the view, typically from a nib.
+        amountPaidTextField.keyboardType = UIKeyboardType.numberPad
     }
     
-  
-    
+  //
+
     
     
     
@@ -200,15 +204,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     }
     
+    
     @IBAction func sendOrder(_ sender: Any) {
         
         let name = sendOrder.titleLabel?.text
         let strTime = String(getFormatedTime())
-        let strAmount = totalAmountLabel.text?.replacingOccurrences(of: "$", with: "")
-        db.child("Sales").child(strTime!).setValue(strAmount!)
+        let strAmount = String(getTotalAmount())
+        db.child("Sales").child(strTime!).setValue(strAmount)
         orderItems.removeAll()
         self.tableView.reloadData()
         totalAmountLabel.text = "$0.0"
+        amountPaidTextField.text = ""
+        changeLabel.text = ""
         debugPrint(name!)
     }
     
@@ -245,6 +252,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     
+    func getTotalAmount()->Double{
+        let strTotal = totalAmountLabel.text?.replacingOccurrences(of: "$", with: "")
+        let tempAmount = Double(strTotal!)
+        return tempAmount!
+    }
     
     func calculateTotal(){
         var tempTotal:Double = 0
@@ -257,13 +269,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
   
     //TODO
     @IBAction func payTouched(_ sender: Any) {
-        let temptime = getFormatedTime()
         
-        print(temptime)
+        let value = Double(amountPaidTextField.text!)
+        let temtotal = getTotalAmount()
+        if (value! > temtotal ){
+        let remainder = value! - temtotal
+        changeLabel.text = String(remainder)
+        }
+        else{
+            let alertController = UIAlertController(title: "Incorrect Amount Enter", message:
+                "Enter a greater amount!", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            
+            self.present(alertController, animated: true, completion: nil)
+        }
+        debugPrint(remainder)
         
     }
-    
-    
     
     
     //get formated time --> June 29, 2017 at 1:59:09 PM PDT
