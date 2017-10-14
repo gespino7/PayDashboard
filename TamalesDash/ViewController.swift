@@ -45,12 +45,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
 
     //TODO: need to move this prices to a class
-    let RegularPrice = 2.5
+    let RegularPrice = 2.50
     let NonRegularPrice = 3.0
     let DocenaPrice = 26.0
     let TortaPrice = 4.0
     let SodaPrice = 1.50
-    let WaterPrice = 1.0
+    let WaterPrice = 1a.0
     
     //Creating a connection to firebase
     var db: FIRDatabaseReference!
@@ -217,10 +217,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         amountPaidTextField.text = ""
         changeLabel.text = ""
         debugPrint(name!)
+       // getAmount()
     }
+    
+    
+    
+    func getAmount(){
+        
+        db.child("Sales").observeSingleEvent(of: .value , with: { (snapshot) in
+            let value = snapshot.value as? NSDictionary
+            debugPrint(value!)
+        }){ (error) in
+            print(error.localizedDescription)
+        }
+    }
+    
     
     //Array to hold items in order.
     var orderItems = [Item]()
+    
+    
     
     
     //Methods for tableview.
@@ -232,7 +248,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = Bundle.main.loadNibNamed("CustomTableViewCell", owner: self, options: nil)?.first as! CustomTableViewCell
         cell.itemNameLabel?.text = orderItems[indexPath.row].Name
-        cell.itemQuantityLabel?.text = "X" + String(orderItems[indexPath.row].Count)
+        cell.itemQuantityLabel?.text = String(indexPath.row + 1) + "."
         cell.itemPriceAmountLabel?.text = "$" + String(orderItems[indexPath.row].Price)
         calculateTotal()
         return cell
